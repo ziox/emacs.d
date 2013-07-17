@@ -12,7 +12,8 @@
 
 (setq my:el-get-packages
       '(powerline
-	smex))
+	smex
+	magit))
 
 (el-get 'sync my:el-get-packages)
 
@@ -23,3 +24,6 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
