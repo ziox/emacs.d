@@ -15,7 +15,8 @@
       '(powerline
 	smex
 	magit
-	yasnippet))
+	yasnippet
+	org-mode))
 	
 (el-get 'sync my:el-get-packages)
 
