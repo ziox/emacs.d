@@ -8,13 +8,15 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
 
 (setq my:el-get-packages
       '(powerline
 	smex
-	magit))
-
+	magit
+	yasnippet))
+	
 (el-get 'sync my:el-get-packages)
 
 ;; Interactive Mode
@@ -27,3 +29,6 @@
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; YASnippet
+(yas-global-mode 1)
