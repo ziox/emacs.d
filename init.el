@@ -9,3 +9,8 @@
       (eval-print-last-sexp))))
 
 (el-get 'sync)
+
+(setq my:el-get-packages
+      '(powerline))
+
+(el-get 'sync my:el-get-packages)
