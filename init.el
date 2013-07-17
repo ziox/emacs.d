@@ -23,6 +23,9 @@
 ;; Interactive Mode
 (ido-mode t)
 
+;; Disable menu bar
+(menu-bar-mode -1)
+
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
