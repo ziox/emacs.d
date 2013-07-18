@@ -12,14 +12,16 @@
 (el-get 'sync)
 
 (setq my:el-get-packages
-      '(powerline
+      '(
+	smooth-scrolling
+	powerline
 	smex
 	magit
 	yasnippet
 	org-mode
-	smooth-scrolling
 	undo-tree
-))
+	)
+)
 	
 (el-get 'sync my:el-get-packages)
 
