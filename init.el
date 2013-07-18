@@ -26,6 +26,10 @@
 ;; Disable menu bar
 (menu-bar-mode -1)
 
+;; Disable backup and auto-save
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
