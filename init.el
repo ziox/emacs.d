@@ -40,6 +40,9 @@
 ;; Smooth scrolling
 (setq smooth-scroll-margin 2)
 
+;; I want <RET> to auto indent! WTF!
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
