@@ -20,6 +20,7 @@
 	yasnippet
 	org-mode
 	undo-tree
+	scratch
 	)
 )
 	
