@@ -16,7 +16,8 @@
 	smex
 	magit
 	yasnippet
-	org-mode))
+	org-mode
+	smooth-scrolling))
 	
 (el-get 'sync my:el-get-packages)
 
@@ -29,6 +30,9 @@
 ;; Disable backup and auto-save
 (setq backup-inhibited t)
 (setq auto-save-default nil)
+
+;; Smooth scrolling
+(setq smooth-scroll-margin 2)
 
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
