@@ -22,6 +22,7 @@
 	undo-tree
 	smart-tab
 	scratch
+	evil
 	)
 )
 	
