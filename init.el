@@ -17,7 +17,9 @@
 	magit
 	yasnippet
 	org-mode
-	smooth-scrolling))
+	smooth-scrolling
+	undo-tree
+))
 	
 (el-get 'sync my:el-get-packages)
 
