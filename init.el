@@ -20,6 +20,7 @@
 	yasnippet
 	org-mode
 	undo-tree
+	smart-tab
 	scratch
 	)
 )
