@@ -24,6 +24,7 @@
 	smart-tab
 	scratch
 	evil
+	auto-complete
 	)
 )
 	
