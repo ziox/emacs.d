@@ -9,6 +9,7 @@
       (eval-print-last-sexp))))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(setq el-get-user-package-directory "~/.emacs.d/el-get-user/init")
 (el-get 'sync)
 
 (setq my:el-get-packages
