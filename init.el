@@ -46,3 +46,6 @@
 
 ;; YASnippet
 (yas-global-mode 1)
+
+;; Undo Tree
+(global-undo-tree-mode)
