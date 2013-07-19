@@ -59,5 +59,11 @@
 ;; YASnippet
 (yas-global-mode 1)
 
+;; Org-mode
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "RET") 'org-return-indent)
+	    (local-set-key (kbd "C-j") 'org-return)))
+
 ;; Undo Tree
 (global-undo-tree-mode)
