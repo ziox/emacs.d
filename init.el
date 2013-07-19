@@ -32,6 +32,8 @@
 
 ;; Interactive Mode
 (ido-mode t)
+(setq ido-enable-flex-matching t)
+(setq ido-enable-last-directory-history nil)
 
 ;; Disable menu bar
 (menu-bar-mode -1)
