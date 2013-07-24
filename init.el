@@ -1,14 +1,18 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
     (let (el-get-master-branch)
       (goto-char (point-max))
-      (eval-print-last-sexp))))
+      (eval-print-last-sexp))
+    (el-get-elpa-build-local-recipes)))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (setq el-get-user-package-directory "~/.emacs.d/el-get-user/init")
 (el-get 'sync)
 
