@@ -15,15 +15,12 @@
 (setq my:el-get-packages
       '(
 	smooth-scrolling
-	powerline
 	smex
 	magit
 	yasnippet
-	org-mode
 	undo-tree
 	smart-tab
 	scratch
-	evil
 	auto-complete
 	)
 )
