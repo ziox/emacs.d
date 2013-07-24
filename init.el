@@ -27,6 +27,9 @@
 	
 (el-get 'sync my:el-get-packages)
 
+;; Solarized!
+(load-theme 'solarized-dark t)
+
 ;; Interactive Mode
 (ido-mode t)
 (setq ido-enable-flex-matching t)
