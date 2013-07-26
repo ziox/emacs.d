@@ -13,7 +13,7 @@
       (eval-print-last-sexp))
     (el-get-elpa-build-local-recipes)))
 
-(setq el-get-user-package-directory "~/.emacs.d/el-get-user/init")
+(setq el-get-user-package-directory "~/.emacs.d/el-get-user")
 (el-get 'sync)
 
 (setq my:el-get-packages
@@ -26,9 +26,11 @@
 	smart-tab
 	scratch
 	auto-complete
+	expand-region
+	autopair
 	)
 )
-	
+
 (el-get 'sync my:el-get-packages)
 
 ;; Solarized!
@@ -72,3 +74,6 @@
 
 ;; Undo Tree
 (global-undo-tree-mode)
+
+;; Autopair
+(autopair-global-mode)
