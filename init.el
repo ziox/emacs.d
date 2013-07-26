@@ -75,5 +75,8 @@
 ;; Undo Tree
 (global-undo-tree-mode)
 
+;; Expand Region
+(global-set-key (kbd "C-x C-p") 'er/expand-region)
+
 ;; Autopair
 (autopair-global-mode)
