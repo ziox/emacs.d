@@ -37,6 +37,13 @@
 ;; Solarized!
 (load-theme 'solarized-dark t)
 
+;; Mac specific settings
+(when (eq system-type 'darwin)
+  (setq ns-right-alternate-modifier nil)
+  ;; GUI fonts
+  (when (display-graphic-p)
+    (set-face-attribute 'default nil :font "-apple-PragmataPro-medium-normal-normal-*-20-*-*-*-m-0-iso10646-")))
+
 ;; Interactive Mode
 (ido-mode t)
 (setq ido-enable-flex-matching t)
