@@ -18,6 +18,7 @@
 
 (setq my:el-get-packages
       '(
+	color-theme-solarized
 	smooth-scrolling
 	smex
 	magit
