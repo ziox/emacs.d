@@ -49,9 +49,10 @@
 (setq ido-enable-flex-matching t)
 (setq ido-enable-last-directory-history nil)
 
-;; Disable menu and tool bar
+;; Disable menu, tool bar and scroll bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; Disable backup and auto-save
 (setq backup-inhibited t)
