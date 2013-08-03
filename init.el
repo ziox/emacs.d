@@ -14,7 +14,7 @@
     (el-get-elpa-build-local-recipes)))
 
 (setq el-get-user-package-directory "~/.emacs.d/el-get-user")
-(el-get 'sync)
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
 (setq my:el-get-packages
       '(
