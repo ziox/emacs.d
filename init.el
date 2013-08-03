@@ -18,24 +18,32 @@
 
 (setq my:el-get-packages
       '(
-	color-theme-solarized
-	smooth-scrolling
-	smex
-	magit
-	yasnippet
-	undo-tree
-	smart-tab
-	scratch
-	auto-complete
-	expand-region
-	autopair
-	)
+        color-theme-solarized
+        smooth-scrolling
+        smex
+        magit
+        yasnippet
+        undo-tree
+        smart-tab
+        scratch
+        auto-complete
+        expand-region
+        autopair
+        projectile
+        )
 )
 
 (el-get 'sync my:el-get-packages)
 
 ;; Solarized!
 (load-theme 'solarized-dark t)
+
+;; Tabs and Spaces
+(setq-default indent-tabs-mode nil)
+(setq tab-width 4)
+(setq whitespace-style (quote (face trailing tab-mark)))
+(set-face-background 'whitespace-trailing "#FF0000")
+(global-whitespace-mode)
 
 ;; Mac specific settings
 (when (eq system-type 'darwin)
@@ -77,9 +85,9 @@
 
 ;; Org-mode
 (add-hook 'org-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "RET") 'org-return-indent)
-	    (local-set-key (kbd "C-j") 'org-return)))
+          (lambda ()
+            (local-set-key (kbd "RET") 'org-return-indent)
+            (local-set-key (kbd "C-j") 'org-return)))
 
 ;; Undo Tree
 (global-undo-tree-mode)
