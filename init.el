@@ -44,6 +44,7 @@
 (setq whitespace-style (quote (face trailing tab-mark)))
 (set-face-background 'whitespace-trailing "#FF0000")
 (global-whitespace-mode)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Mac specific settings
 (when (eq system-type 'darwin)
