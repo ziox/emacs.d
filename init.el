@@ -1,42 +1,29 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(load "~/.emacs.d/init-packages.el")
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; Sets paths from shell in OS X
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch)
-      (goto-char (point-max))
-      (eval-print-last-sexp))
-    (el-get-elpa-build-local-recipes)))
-
-(setq el-get-user-package-directory "~/.emacs.d/el-get-user")
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-
-(setq my:el-get-packages
-      '(
-        color-theme-solarized
-        smooth-scrolling
-        smex
-        magit
-        yasnippet
-        undo-tree
-        smart-tab
-        scratch
-        auto-complete
-        expand-region
-        autopair
-        projectile
-        )
-)
-
-(el-get 'sync my:el-get-packages)
+;; Frame size in GUI
+(when (display-graphic-p)
+  (setq initial-frame-alist '((top . 0) (left . 0) (width . 130) (height . 40))))
 
 ;; Solarized!
 (load-theme 'solarized-dark t)
+
+;; Disable menu, tool bar and scroll bar
+(unless (eq system-type 'darwin)
+  ;; on mac, there's always a menu bar drown, don't have it empty
+  (menu-bar-mode -1))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; No splash screen
+(setq inhibit-splash-screen t)
+
+;; Line and column numbers
+(line-number-mode 1)
+(column-number-mode 1)
 
 ;; Tabs and Spaces
 (setq-default indent-tabs-mode nil)
@@ -46,22 +33,21 @@
 (global-whitespace-mode)
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-;; Mac specific settings
-(when (eq system-type 'darwin)
-  (setq ns-right-alternate-modifier nil)
-  ;; GUI fonts
-  (when (display-graphic-p)
-    (set-face-attribute 'default nil :font "-apple-PragmataPro-medium-normal-normal-*-20-*-*-*-m-0-iso10646-")))
+;; Parentheses
+(paren-activate)
 
 ;; Interactive Mode
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq ido-enable-last-directory-history nil)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-C-p-up-down)
+(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
 
-;; Disable menu, tool bar and scroll bar
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;; Smex
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Disable backup and auto-save
 (setq backup-inhibited t)
@@ -69,61 +55,40 @@
 
 ;; Smooth scrolling
 (setq smooth-scroll-margin 2)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
 
 ;; I want <RET> to auto indent! WTF!
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-;; C/C++
-(defconst ziox-style
-  '((c-tab-always-indent        . t)
-    (c-comment-only-line-offset . 4)
-    (c-hanging-braces-alist     . ((substatement-open after)
-                                   (brace-list-open)))
-    (c-hanging-colons-alist     . ((member-init-intro before)
-                                   (inher-intro)
-                                   (case-label after)
-                                   (label after)
-                                   (access-label after)))
-    (c-cleanup-list             . (scope-operator
-                                   empty-defun-braces
-                                   defun-close-semi))
-    (c-offsets-alist            . ((arglist-close . c-lineup-arglist)
-                                   (substatement-open . 0)
-                                   (case-label        . 4)
-                                   (block-open        . 0)
-                                   (knr-argdecl-intro . -)
-                                   (comment-intro     . 0)))
-    (c-echo-syntactic-information-p . t))
-  "Personal C Programming Style")
-(c-add-style "ziox" ziox-style)
-
-(setq c-default-style
-      '((java-mode . "java")
-        (awk-mode . "awk")
-        (other . "ziox")))
-
-;; Smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; C++
+(setq-default c-basic-offset 4)
+(setq-default c-electric-flag nil)
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (other . "k&r")))
 
 ;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
+; (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; YASnippet
-(yas-global-mode 1)
-
-;; Org-mode
-(add-hook 'org-mode-hook
-          (lambda ()
-            (local-set-key (kbd "RET") 'org-return-indent)
-            (local-set-key (kbd "C-j") 'org-return)))
+; (yas-global-mode 1)
 
 ;; Undo Tree
-(global-undo-tree-mode)
+; (global-undo-tree-mode)
+
+;; Smart-tab
+; (global-smart-tab-mode 1)
 
 ;; Expand Region
-(global-set-key (kbd "C-x C-p") 'er/expand-region)
+; (global-set-key (kbd "C-x C-p") 'er/expand-region)
 
 ;; Autopair
-(autopair-global-mode)
+; (autopair-global-mode)
+
+;; Clojure
+; (add-hook 'clojure-mode-hook 'smartparens-mode)
+
+;; Mac specific settings
+(when (eq system-type 'darwin)
+  (load "~/.emacs.d/init-osx.el"))
