@@ -1,3 +1,8 @@
 el-get/*
 elpa/*
+eshell/*
+session/*
+url/*
 *.elc
+ac-comphist.dat
+projectile-bookmarks.eld
