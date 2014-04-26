@@ -1,5 +1,8 @@
 ;; Mac specific settings
 
+;; Sets paths from shell in OS X
+(exec-path-from-shell-initialize)
+
 (setq ns-right-alternate-modifier nil)
 
 ;; GUI fonts

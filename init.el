@@ -1,20 +1,10 @@
 (load "~/.emacs.d/init-packages.el")
 
-;; Sets paths from shell in OS X
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; Frame size in GUI
-(when (display-graphic-p)
-  (setq initial-frame-alist '((top . 0) (left . 0) (width . 130) (height . 40))))
-
 ;; Solarized!
 (load-theme 'solarized-dark t)
 
 ;; Disable menu, tool bar and scroll bar
-(unless (eq system-type 'darwin)
-  ;; on mac, there's always a menu bar drown, don't have it empty
-  (menu-bar-mode -1))
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -55,6 +45,10 @@
 (setq c-default-style '((java-mode . "java")
                         (awk-mode . "awk")
                         (other . "k&r")))
+
+;; GUI Specific settings
+(when (display-graphic-p)
+  (load "~/.emacs.d/init-gui.el"))
 
 ;; Mac specific settings
 (when (eq system-type 'darwin)
