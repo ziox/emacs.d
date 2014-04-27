@@ -21,26 +21,32 @@
         el-get
         exec-path-from-shell
         color-theme-solarized
+
         smooth-scrolling
         smex
+        ido-vertical-mode
+        ;smart-tab
+        ;undo-tree
+        ;expand-region
 
-        mic-paren
+        ;scratch
+        ;mic-paren
         smartparens
-
-        clojure-mode
-        cider
-
-        haskell-mode
 
         auto-complete
         yasnippet
-
-        ;magit
-        ;undo-tree
-        ;smart-tab
-        ;scratch
-        ;expand-region
         ;projectile
+        ;magit
+
+        ;; C++
+        cmake-mode
+
+        ;; Clojure
+        ;clojure-mode
+        ;cider
+
+        ;; Haskell
+        ;haskell-mode
         )
 )
 
