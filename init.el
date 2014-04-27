@@ -11,9 +11,20 @@
 ;; No splash screen
 (setq inhibit-splash-screen t)
 
+;; Turn off the fucking bell
+(setq ring-bell-function 'ignore)
+
 ;; Line and column numbers
+(global-linum-mode 1)
+(setq linum-format "%4d")
 (line-number-mode 1)
 (column-number-mode 1)
+
+;; Highlight current line
+(global-hl-line-mode 1)
+
+;; Fast echoing
+(setq echo-keystrokes 0.1)
 
 ;; Tabs and Spaces
 (setq-default indent-tabs-mode nil)
@@ -30,10 +41,14 @@
 
 ;; Disable backup and auto-save
 (setq backup-inhibited t)
+(setq make-backup-files nil)
 (setq auto-save-default nil)
 
 ;; I want <RET> to auto indent! WTF!
 (global-set-key (kbd "RET") 'newline-and-indent)
+
+;; Overwrite the selection! WTF!
+(delete-selection-mode t)
 
 ;; C++
 (setq-default c-basic-offset 4)
