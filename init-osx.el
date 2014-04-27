@@ -9,6 +9,10 @@
 (when (display-graphic-p)
   (set-face-attribute 'default nil :font "-apple-PragmataPro-medium-normal-normal-*-20-*-*-*-m-0-iso10646-"))
 
+;; MouseWheel!
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 ;;
 ;; Add some keybindings (for ergonomic reason!)
 ;;

@@ -32,10 +32,6 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
-;; MouseWheel!
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-(setq mouse-wheel-progressive-speed nil)
-
 ;; I want <RET> to auto indent! WTF!
 (global-set-key (kbd "RET") 'newline-and-indent)
 
