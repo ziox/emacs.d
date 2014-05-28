@@ -13,6 +13,8 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
+(setq ns-pop-up-frames nil)
+
 ;;
 ;; Add some keybindings (for ergonomic reason!)
 ;;
