@@ -1,53 +1,44 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(require 'use-package)
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(use-package auto-complete
+  :init
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+  :config
+  (progn
+    (require 'auto-complete-config)
+    (ac-config-default)
+    (setq ac-auto-start 4)
+    (setq ac-auto-show-menu 2.0)
+    (ac-set-trigger-key "TAB")
+    (ac-set-trigger-key "<tab>")))
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch)
-      (goto-char (point-max))
-      (eval-print-last-sexp))
-    (el-get-elpa-build-local-recipes)))
+(use-package cmake-mode
+  :mode (("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode)))
 
-(setq el-get-user-package-directory "~/.emacs.d/el-get-user")
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(use-package expand-region
+  :bind ("C-x C-p" . er/expand-region))
 
-(setq my:el-get-packages
-      '(
-        el-get
-        exec-path-from-shell
-        color-theme-solarized
+(use-package helm
+  :init (require 'helm-config)
+  :bind ("s-t" . helm-mini))
 
-        smooth-scrolling
-        smex
-        ido-vertical-mode
-        ;smart-tab
-        ;undo-tree
-        ;expand-region
+(use-package ido-vertical-mode
+  :init
+  (progn
+    (ido-vertical-mode 1)
+    (setq ido-vertical-define-keys 'C-n-C-p-up-down)
+    (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)))
 
-        ;scratch
-        ;mic-paren
-        smartparens
+(use-package smartparens
+  :init (smartparens-global-mode t))
 
-        auto-complete
-        yasnippet
-        ;projectile
-        ;magit
+(use-package smex
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
+         ("C-c C-c M-x" . execute-extended-command)))
 
-        ;; C++
-        cmake-mode
+(use-package smooth-scrolling
+  :init (setq smooth-scroll-margin 2))
 
-        ;; Clojure
-        ;clojure-mode
-        ;cider
 
-        ;; Haskell
-        ;haskell-mode
-        )
-)
-
-(el-get 'sync my:el-get-packages)

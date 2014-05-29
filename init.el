@@ -1,7 +1,15 @@
-(load "~/.emacs.d/init-packages.el")
+(require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+(cask-initialize)
 
-;; Solarized!
-(load-theme 'solarized-dark t)
+;; Keeps ~Cask~ file in sync with the packages
+;; that you install/uninstall via ~M-x list-packages~
+;; https://github.com/rdallasgray/pallet
+(require 'pallet)
+
+;; Theme
+;; https://github.com/bbatsov/zenburn-emacs
+(load-theme 'zenburn t)
+(set-cursor-color "firebrick")
 
 ;; Disable menu, tool bar and scroll bar
 (menu-bar-mode -1)
@@ -15,16 +23,11 @@
 (setq ring-bell-function 'ignore)
 
 ;; Line and column numbers
-(global-linum-mode 1)
-(setq linum-format "%4d")
 (line-number-mode 1)
 (column-number-mode 1)
 
-;; Highlight current line
-(global-hl-line-mode 1)
-
 ;; Fast echoing
-(setq echo-keystrokes 0.1)
+(setq echo-keystrokes 0.02)
 
 ;; Tabs and Spaces
 (setq-default indent-tabs-mode nil)
@@ -56,6 +59,9 @@
 (setq c-default-style '((java-mode . "java")
                         (awk-mode . "awk")
                         (other . "k&r")))
+
+;; Load packages settings
+(load "~/.emacs.d/init-packages.el")
 
 ;; GUI Specific settings
 (when (display-graphic-p)

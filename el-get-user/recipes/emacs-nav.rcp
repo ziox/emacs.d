@@ -1,5 +1,0 @@
-(:name emacs-nav
-       :website "https://code.google.com/p/emacs-nav/"
-       :description "Nav is a lightweight solution for Emacs users who want something like TextMate's file browser"
-       :type hg
-       :url "https://code.google.com/p/emacs-nav/")

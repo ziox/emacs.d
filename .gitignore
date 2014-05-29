@@ -3,6 +3,7 @@ elpa/*
 eshell/*
 session/*
 url/*
+.cask/*
 *.elc
 ac-comphist.dat
 projectile-bookmarks.eld
