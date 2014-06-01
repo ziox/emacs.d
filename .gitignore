@@ -4,6 +4,7 @@ eshell/*
 session/*
 url/*
 .cask/*
+ac-dict
 *.elc
 ac-comphist.dat
 projectile-bookmarks.eld
