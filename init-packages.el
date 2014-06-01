@@ -1,5 +1,11 @@
 (require 'use-package)
 
+(use-package ag
+  :config
+  (progn
+    (setq ag-highlight-search t)
+    (setq ag-reuse-buffers t)))
+
 (use-package auto-complete
   :init
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
