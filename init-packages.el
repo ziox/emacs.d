@@ -40,6 +40,11 @@
     (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)))
 
 (use-package smartparens
+  :config
+  (progn
+    (require 'smartparens-config)
+    (setq sp-autoescape-string-quote nil)
+    (show-smartparens-global-mode t))
   :init (smartparens-global-mode t))
 
 (use-package smex
