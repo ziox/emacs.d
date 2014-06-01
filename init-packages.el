@@ -22,6 +22,8 @@
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode)))
 
+(use-package enh-ruby-mode)
+
 (use-package expand-region
   :bind ("C-x C-p" . er/expand-region))
 
@@ -46,5 +48,9 @@
 
 (use-package smooth-scrolling
   :init (setq smooth-scroll-margin 2))
+
+(use-package web-mode
+  :mode (("\\.erb\\'" . web-mode)
+         ("\\.html?\\'" . web-mode)))
 
 
