@@ -13,6 +13,7 @@
   (progn
     (require 'auto-complete-config)
     (ac-config-default)
+    (setq ac-ignore-case nil)
     (setq ac-auto-start 4)
     (setq ac-auto-show-menu 2.0)
     (ac-set-trigger-key "TAB")
