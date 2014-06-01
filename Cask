@@ -20,6 +20,7 @@
 (depends-on "pallet")
 (depends-on "popwin")
 (depends-on "projectile")
+(depends-on "redo+")
 (depends-on "s")
 (depends-on "smartparens")
 (depends-on "smex")
